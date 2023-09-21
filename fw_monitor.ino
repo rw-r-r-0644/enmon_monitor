@@ -71,6 +71,6 @@ static void waitNTP(void) {
 
     NTP.begin("pool.ntp.org", "time.nist.gov");
     Serial.print("Waiting for NTP time sync");
-    NTP.waitSet([]() { Serial.print("."); });
+    while (NTP.waitSet([]() { Serial.print("."); }));
     Serial.println("OK");
 }
